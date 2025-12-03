@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gradient-1: #a855f7;
+    --gradient-2: #ec4899;
+    --gradient-3: #8b5cf6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-dark-bg text-dark-text;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  ::selection {
+    @apply bg-primary-600/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-card;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-primary-600 to-primary-800 rounded-full;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-purple-400 to-pink-400 
+           bg-clip-text text-transparent bg-[length:200%_auto] 
+           animate-gradient font-bold;
+  }
+
+  .highlight-text {
+    @apply bg-gradient-to-r from-primary-500 to-pink-500 
+           bg-clip-text text-transparent font-bold;
+  }
+
+  .glass-card {
+    @apply bg-dark-card/50 backdrop-blur-sm border border-dark-border/30 
+           rounded-2xl shadow-xl;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 
+           rounded-xl font-semibold bg-gradient-to-r from-primary-600 to-primary-800 
+           text-white hover:from-primary-700 hover:to-primary-900 
+           transform hover:scale-105 transition-all duration-300 
+           shadow-lg hover:shadow-xl;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 
+           rounded-xl font-semibold border-2 border-primary-600 
+           text-primary-400 hover:bg-primary-600/10 
+           transition-all duration-300;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 text-center hover:scale-105 
+           transition-transform duration-300;
+  }
+
+  .skill-badge {
+    @apply px-4 py-2 rounded-full bg-primary-900/30 
+           border border-primary-700 text-primary-300 
+           hover:bg-primary-800/50 transition-all duration-300;
+  }
+
+  .testimonial-card {
+    @apply glass-card p-6 hover:border-primary-500/50 
+           transition-all duration-500;
+  }
+}
